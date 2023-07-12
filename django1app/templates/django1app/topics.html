@@ -1,0 +1,16 @@
+{% extends "django1app/base.html" %}
+
+{% block content %}
+<!-- ul is for unordered list -->
+<p>Topics</p>
+
+    <ul>
+        {% for topic in topics %}
+            <li>{{topic}} </li>
+    <!-- the brackets indicate a template variable, li stands for list item, "/" indicates a closing of p,ul,li  -->
+            {%empty%}
+                <li> No topics have been added yet</li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}

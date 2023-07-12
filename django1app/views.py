@@ -8,7 +8,15 @@ def index(request):
 
 def topics(request):
     """Show all topics."""
-    topics= Topics.objects.order_by("date_added")
+    topics= Topic.objects.order_by("date_added")
     context={"topics":topics}
-    return render(request,"learning_logs/topics.html",context)
+    return render(request, "django1app/topics.html", context)
+
+def topic(request, topic_id):
+    """shows a single topic all its entries"""
+    topic= Topic.objects.get(id=topic_id)
+    entries= topic.entry_set.order_by("-date_added")
+    """the - reverses the order, so most recent first"""
+    context = {"topic" : topic, "entries" : entries}
+    return render(request, "django1app/topic.html", context)
 
