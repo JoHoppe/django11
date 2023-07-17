@@ -6,11 +6,14 @@
 
     <ul>
         {% for topic in topics %}
-            <li>{{topic}} </li>
+            <li>
+                <a href = "{%url 'django1app:topic' topic.id%}">{{topic}} </a>
+            </li>
     <!-- the brackets indicate a template variable, li stands for list item, "/" indicates a closing of p,ul,li  -->
             {%empty%}
                 <li> No topics have been added yet</li>
         {% endfor %}
     </ul>
+<a href="{% url 'django1app:new_topic' %}">Add a new topic:</a>
 
 {% endblock content %}

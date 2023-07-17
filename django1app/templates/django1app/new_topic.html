@@ -1,0 +1,10 @@
+{% extends "django1app/base.html" %}
+
+{%block content%}
+    <p> Add a new topic</p>
+    <form action = "{%url 'django1app:new_topic' %}" method="post">
+        {%csrf_token %}
+        {{form.as_p}}
+        <buttom name="submit">add topic</buttom>
+    </form>
+{% endblock content %}
