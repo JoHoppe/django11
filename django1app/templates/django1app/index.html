@@ -1,7 +1,12 @@
 {%extends "django1app/base.html"%}
 
+{% block title %}Home{% endblock %}
+
 {% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+{% else %}
+  <p>You are not logged in</p>
 
-<p>Django1app log tracks my learning, for any topic im learning</p>
-
-{% endblock content %}
+{% endif %}
+{% endblock %}

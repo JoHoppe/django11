@@ -1,11 +1,16 @@
+
 <p>
     <a href = '{%url "django1app:index" %}'>Django1App</a> -
     <a href = '{%url "django1app:topics" %}'>Topics</a>-
     {% if user.is_authenticated %}
-        Hello, {{ user.username }}
+    <a href="{% url 'logout' %}">Log Out</a>
     {%else %}
+    <a href ="{%url 'users:register' %}">register</a>-
     <a href = "{%url 'users:login' %}">log in</a>
     {%endif %}
+    {% if request.path != LOGIN_URL and not request.user.is_authenticated %}
+        <p>Login required to access this page.</p>
+    {% endif %}
        <!-- “Hypertext REFerence"-->
 
 </p>

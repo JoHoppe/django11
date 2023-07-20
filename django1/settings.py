@@ -34,6 +34,11 @@ INSTALLED_APPS = [
     #my apps
     'django1app',
     'users',
+
+    #third party apps
+
+    'bootstrap3',
+
     #default apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -126,3 +131,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#my settings
+LOGIN_URL = '/users/login'
+
+#settings for bootstrap3
+BOOTSTRAP3= {
+    'include_jquerry' : True,
+}
